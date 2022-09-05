@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>Label</key>
+		<string>nethermind</string>
+		<key>Program</key>
+		<string>"{{ nethermind_current_dir }}/Nethermind.Runner "</string>
+		<key>ProgramArguments</key>
+		<array>
+			<string>--config-file</string>
+			<string>"{{ nethermind_config_dir }}/{{ nethermind_config_base }}"</string>
+      <string>--datadir</string>
+      <string>"{{ nethermind_data_dir }}"</string>
+      <string>--configsDirectory</string>
+      <string>"{{ nethermind_config_dir }}"</string>
+		</array>
+		<key>RunAtLoad</key>
+		<true/>
+	</dict>
+</plist>

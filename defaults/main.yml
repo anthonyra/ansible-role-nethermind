@@ -1,0 +1,37 @@
+---
+# User and group
+nethermind_user: nethermind
+nethermind_group: "{{ nethermind_user }}"
+
+# Version to install
+# nethermind_version: "latest"
+
+# Building from source
+nethermind_git_repo: "https://github.com/NethermindEth/nethermind.git"
+nethermind_git_commit: "master"
+
+# Directory paths
+nethermind_base_dir: "/opt/nethermind"
+nethermind_install_dir: "{{ nethermind_base_dir }}/nethermind-{{ nethermind_version if nethermind_version != 'latest' else nethermind_latest }}"
+nethermind_current_dir: "{{ nethermind_base_dir }}/current"
+nethermind_config_dir: "/etc/nethermind"
+nethermind_config_template: "config.cfg.j2"
+nethermind_data_dir: "{{ nethermind_base_dir }}/data"
+nethermind_log_dir: "/var/log/nethermind"
+nethermind_launchd_dir: "/Library/LaunchAgents"
+
+# Managed service config
+nethermind_managed_service: true
+nethermind_systemd_state: restarted
+nethermind_systemd_template: nethermind.service.j2
+nethermind_systemd_dir: /etc/systemd/system
+nethermind_launchd_template: "nethermind.plist.j2"
+
+# nethermind config
+nethermind_config_base: mainnet
+nethermind_cmdline_args: []
+nethermind_env_vars: {}
+nethermind_custom_config: {}
+
+# internal state to maintain idempotency
+nethermind_state_updates: []

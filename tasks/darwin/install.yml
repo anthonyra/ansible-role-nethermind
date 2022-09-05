@@ -1,0 +1,15 @@
+---
+- name: Add nethermind Brew tap
+  homebrew_tap:
+    name: nethermindeth/nethermind
+    state: present
+
+- name: Install nethermind dependencies via brew
+  homebrew:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - gmp
+    - snappy
+    - lz4
+    - zstd

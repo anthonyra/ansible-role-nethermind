@@ -1,0 +1,28 @@
+- name: Get nethermind latest tag
+  github_release:
+    user: NethermindEth
+    repo: nethermind
+    action: latest_release
+  register: nethermind_latest
+  when: nethermind_version is not defined or nethermind_version == "latest"
+
+- name: Save download urls
+  uri:
+    url: https://api.github.com/repos/NethermindEth/nethermind/releases/tags/{{ nethermind_latest['tag'] | default(nethermind_version) | regex_replace('^v','') }}
+    return_content: true
+  register: nethermind_urls
+
+- name: Set fact for download string
+  set_fact:
+    nethermind_download_string_matcher: "nethermind-{{ 'linux' if ansible_os_family|lower != 'darwin' else 'darwin' }}-{{ 'amd64' if ansible_architecture == 'x86_64' else ansible_architecture }}"
+
+- debug:
+    var: nethermind_download_string_matcher
+
+- name: "setting netherminds version download url {{ nethermind_urls.json.tag_name }}"
+  loop: "{{ nethermind_urls.json.assets }}"
+  loop_control:
+    label: "{{ item.name }}"
+  when: item.name is match(nethermind_download_string_matcher)
+  set_fact:
+    nethermind_download_url: "{{ item.browser_download_url }}"

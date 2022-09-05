@@ -1,0 +1,23 @@
+[Unit]
+Description=Nethermind Node
+Documentation=https://docs.nethermind.io
+After=network.target
+
+[Service]
+User={{ nethermind_user }}
+Group={{ nethermind_group }}
+{% for key, value in nethermind_env_vars.items() %}
+Environment='{{ key }}={{ value }}'
+{% endfor %}
+WorkingDirectory={{ nethermind_base_dir }}
+{% if nethermind_cmdline_args %}
+ExecStart={{ nethermind_current_dir }}/Nethermind.Runner --datadir {{ nethermind_data_dir }} --configsDirectory {{ nethermind_config_dir }} --config {{ nethermind_config_base }} {{nethermind_cmdline_args|map('to_json')|join(' ')|regex_replace('"','')}}
+{% else %}
+ExecStart={{ nethermind_current_dir }}/Nethermind.Runner --datadir {{ nethermind_data_dir }} --configsDirectory {{ nethermind_config_dir }} --config {{ nethermind_config_base }}
+{% endif %}
+Restart=on-failure
+RestartSec=10s
+LimitNOFILE=1000000
+
+[Install]
+WantedBy=default.target

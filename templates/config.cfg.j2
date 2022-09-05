@@ -1,0 +1,473 @@
+Aura:
+{% if nethermind_allow_aura_private_chains is defined %}
+  AllowAuRaPrivateChains: "{{ nethermind_allow_aura_private_chains }}"
+{% endif %}
+{% if nethermind_force_sealing is defined  %}
+  ForceSealing: "{{ nethermind_force_sealing }}"
+{% endif %}
+{% if nethermind_minimum_2mln_block_gas_limit_contract is defined %}
+  Minimum2MlnGasPerBlockWhenUsingBlockGasLimitContract: "{{ nethermind_minimum_2mln_block_gas_limit_contract }}"
+{% endif %}
+{% if nethermind_tx_priority_config_path is defined %}
+  TxPriorityConfigFilePath: "{{ nethermind_tx_priority_config_path }}"
+{% endif %}
+{% if nethermind_tx_priority_contract_address is defined %}
+  TxPriorityContractAddress: "{{ nethermind_tx_priority_contract_address }}"
+{% endif %}
+Bloom:
+{% if nethermind_bloom_index is defined %}
+  Index: "{{ nethermind_bloom_index }}"
+{% endif %}
+{% if nethermind_bloom_index_level_bucket_sizes is defined %}
+  IndexLevelBucketSizes: "{{ nethermind_bloom_index_level_bucket_sizes }}"
+{% endif %}
+{% if nethermind_bloom_migration is defined %}
+  Migration: "{{ nethermind_bloom_migration }}"
+{% endif %}
+{% if nethermind_bloom_migration_statistics is defined %}
+  MigrationStatistics: "{{ nethermind_bloom_migration_statistics }}"
+{% endif %}
+Init:
+{% if nethermind_init_auto_dump is defined %}
+  AutoDump: "{{ nethermind_init_auto_dump }}"
+{% endif %}
+{% if nethermind_init_base_db_path is defined %}
+  BaseDbPath: "{{ nethermind_init_base_db_path + '/' + nethermind_config_base }}"
+{% endif %}
+{% if nethermind_init_chainspec_path is defined %}
+  ChainSpecPath: "{{ nethermind_init_chainspec_path }}"
+{% endif %}
+{% if nethermind_init_diagnostic_mode is defined %}
+  DiagnosticMode: "{{ nethermind_init_diagnostic_mode }}"
+{% endif %}
+{% if nethermind_init_discovery_enabled is defined %}
+  DiscoveryEnabled: "{{ nethermind_init_discovery_enabled }}"
+{% endif %}
+{% if nethermind_init_enable_unsecured_dev_wallet is defined %}
+  EnableUnsecuredDevWallet: "{{ nethermind_init_enable_unsecured_dev_wallet }}"
+{% endif %}
+{% if nethermind_init_genesis_hash is defined %}
+  GenesisHash: "{{ nethermind_init_genesis_hash }}"
+{% endif %}
+{% if nethermind_init_hive_chainspec_path is defined %}
+  HiveChainSpecPath: "{{ nethermind_init_hive_chainspec_path }}"
+{% endif %}
+{% if nethermind_init_mining_enabled is defined %}
+  IsMining: "{{ nethermind_init_mining_enabled }}"
+{% endif %}
+{% if nethermind_init_dev_wallet_in_memory is defined %}
+  KeepDevWalletInMemory: "{{ nethermind_init_dev_wallet_in_memory }}"
+{% endif %}
+{% if nethermind_init_log_directory is defined %}
+  LogDirectory: "{{ nethermind_init_log_directory }}"
+{% endif %}
+{% if nethermind_init_log_filename is defined %}
+  LogFileName: "{{ nethermind_init_log_filename }}"
+{% endif %}
+{% if nethermind_init_log_rules is defined %}
+  LogRules: "{{ nethermind_init_log_rules }}"
+{% endif %}
+{% if nethermind_init_memory_hint is defined %}
+  MemoryHint: "{{ nethermind_init_memory_hint }}"
+{% endif %}
+{% if nethermind_init_peer_manager_enable is defined %}
+  PeerManagerEnabled: "{{ nethermind_init_peer_manager_enable }}"
+{% endif %}
+{% if nethermind_init_processing_enable is defined %}
+  ProcessingEnabled: "{{ nethermind_init_processing_enable }}"
+{% endif %}
+{% if nethermind_init_receipts_migration is defined %}
+  ReceiptsMigration: "{{ nethermind_init_receipts_migration }}"
+{% endif %}
+{% if nethermind_init_rpc_db_url is defined %}
+  RpcDbUrl: "{{ nethermind_init_rpc_db_url }}"
+{% endif %}
+{% if nethermind_init_static_nodes_path is defined %}
+  StaticNodesPath: "{{ nethermind_init_static_nodes_path }}"
+{% endif %}
+{% if nethermind_init_store_receipts is defined %}
+  StoreReceipts: "{{ nethermind_init_store_receipts }}"
+{% endif %}
+{% if nethermind_init_websockets_enable is defined %}
+  WebSocketsEnabled: "{{ nethermind_init_websockets_enable }}"
+{% endif %}
+Network:
+{% if nethermind_network_max_active_peers_max_count is defined %}
+  ActivePeersMaxCount: "{{ nethermind_network_max_active_peers_max_count }}"
+{% endif %}
+{% if nethermind_network_bootnodes is defined %}
+  Bootnodes: "{{ nethermind_network_bootnodes | default([], true) }}"
+{% endif %}
+{% if nethermind_network_diag_tracer_enabled is defined %}
+  DiagTracerEnabled: "{{ nethermind_network_diag_tracer_enabled }}"
+{% endif %}
+{% if nethermind_network_discovery_port is defined %}
+  DiscoveryPort: "{{ nethermind_network_discovery_port }}"
+{% endif %}
+{% if nethermind_network_external_ip is defined %}
+  ExternalIp: "{{ nethermind_network_external_ip }}"
+{% endif %}
+{% if nethermind_network_local_ip is defined %}
+  LocalIp: "{{ nethermind_network_local_ip }}"
+{% endif %}
+{% if nethermind_network_max_active_peers is defined %}
+  MaxActivePeers: "{{ nethermind_network_max_active_peers }}"
+{% endif %}
+{% if nethermind_network_netty_arena_order is defined %}
+  NettyArenaOrder: "{{ nethermind_network_netty_arena_order }}"
+{% endif %}
+{% if nethermind_network_only_static_peers is defined %}
+  OnlyStaticPeers: "{{ nethermind_network_only_static_peers }}"
+{% endif %}
+{% if nethermind_network_p2p_port is defined %}
+  P2PPort: "{{ nethermind_network_p2p_port }}"
+{% endif %}
+{% if nethermind_network_priority_peers_max_count is defined %}
+  PriorityPeersMaxCount: "{{ nethermind_network_priority_peers_max_count }}"
+{% endif %}
+{% if nethermind_network_static_peers is defined %}
+  StaticPeers: "{{ nethermind_network_static_peers }}"
+{% endif %}
+Pruning:
+{% if nethermind_pruning_cache_mb is defined %}
+  CacheMb: "{{ nethermind_pruning_cache_mb }}"
+{% endif %}
+{% if nethermind_pruning_full_completion_behavior is defined %}
+  FullPruningCompletionBehavior: "{{ nethermind_pruning_full_completion_behavior }}"
+{% endif %}
+{% if nethermind_pruning_full_max_degree_parallelism is defined %}
+  FullPruningMaxDegreeOfParallelism: "{{ nethermind_pruning_full_max_degree_parallelism }}"
+{% endif %}
+{% if nethermind_pruning_full_min_delay_hours is defined %}
+  FullPruningMinimumDelayHours: "{{ nethermind_pruning_full_min_delay_hours }}"
+{% endif %}
+{% if nethermind_pruning_full_threshold_mb is defined %}
+  FullPruningThresholdMb: "{{ nethermind_pruning_full_threshold_mb }}"
+{% endif %}
+{% if nethermind_pruning_full_trigger is defined %}
+  FullPruningTrigger: "{{ nethermind_pruning_full_trigger }}"
+{% endif %}
+{% if nethermind_pruning_mode is defined %}
+  Mode: "{{ nethermind_pruning_mode }}"
+{% endif %}
+{% if nethermind_pruning_persistence_mode is defined %}
+  PersistenceInterval: "{{ nethermind_pruning_persistence_mode }}"
+{% endif %}
+Seq:
+{% if nethermind_seq_api_key is defined %}
+  ApiKey: "{{ nethermind_seq_api_key }}"
+{% endif %}
+{% if nethermind_seq_min_level is defined %}
+  MinLevel: "{{ nethermind_seq_min_level }}"
+{% endif %}
+{% if nethermind_seq_server_url is defined %}
+  ServerUrl: "{{ nethermind_seq_server_url }}"
+{% endif %}
+Sync:
+{% if nethermind_sync_ancient_bodies_barrier is defined %}
+  AncientBodiesBarrier: "{{ nethermind_sync_ancient_bodies_barrier }}"
+{% endif %}
+{% if nethermind_sync_ancient_receipts_barrier is defined %}
+  AncientReceiptsBarrier: "{{ nethermind_sync_ancient_receipts_barrier }}"
+{% endif %}
+{% if nethermind_sync_download_bodies_fast_sync is defined %}
+  DownloadBodiesInFastSync: "{{ nethermind_sync_download_bodies_fast_sync }}"
+{% endif %}
+{% if nethermind_sync_download_headers_fast_sync is defined %}
+  DownloadHeadersInFastSync: "{{ nethermind_sync_download_headers_fast_sync }}"
+{% endif %}
+{% if nethermind_sync_download_receipts_fast_sync is defined %}
+  DownloadReceiptsInFastSync: "{{ nethermind_sync_download_receipts_fast_sync }}"
+{% endif %}
+{% if nethermind_sync_fast_blocks is defined %}
+  FastBlocks: "{{ nethermind_sync_fast_blocks }}"
+{% endif %}
+{% if nethermind_sync_fast_sync is defined %}
+  FastSync: "{{ nethermind_sync_fast_sync }}"
+{% endif %}
+{% if nethermind_sync_fast_sync_catch_up_height_delta is defined %}
+  FastSyncCatchUpHeightDelta: "{{ nethermind_sync_fast_sync_catch_up_height_delta }}"
+{% endif %}
+{% if nethermind_sync_fix_receipts is defined %}
+  FixReceipts: "{{ nethermind_sync_fix_receipts }}"
+{% endif %}
+{% if nethermind_sync_networking_enabled is defined %}
+  NetworkingEnabled: "{{ nethermind_sync_networking_enabled }}"
+{% endif %}
+{% if nethermind_sync_pivot_hash is defined %}
+  PivotHash: "{{ nethermind_sync_pivot_hash }}"
+{% endif %}
+{% if nethermind_sync_pivot_number is defined %}
+  PivotNumber: "{{ nethermind_sync_pivot_number }}"
+{% endif %}
+{% if nethermind_sync_pivot_total_difficulty is defined %}
+  PivotTotalDifficulty: "{{ nethermind_sync_pivot_total_difficulty }}"
+{% endif %}
+{% if nethermind_sync_snap_sync is defined %}
+  SnapSync: "{{ nethermind_sync_snap_sync }}"
+{% endif %}
+{% if nethermind_sync_synchronization_enabled is defined %}
+  SynchronizationEnabled: "{{ nethermind_sync_synchronization_enabled }}"
+{% endif %}
+{% if nethermind_sync_use_geth_limits_fast_blocks is defined %}
+  UseGethLimitsInFastBlocks: "{{ nethermind_sync_use_geth_limits_fast_blocks }}"
+{% endif %}
+{% if nethermind_sync_witness_protocol_enabled is defined %}
+  WitnessProtocolEnabled: "{{ nethermind_sync_witness_protocol_enabled }}"
+{% endif %}
+TxPool:
+{% if nethermind_txpool_gas_limit is defined %}
+  GasLimit: "{{ nethermind_txpool_gas_limit }}"
+{% endif %}
+{% if nethermind_txpool_hash_cache_size is defined %}
+  HashCacheSize: "{{ nethermind_txpool_hash_cache_size }}"
+{% endif %}
+{% if nethermind_txpool_peer_notification_threshold is defined %}
+  PeerNotificationThreshold: "{{ nethermind_txpool_peer_notification_threshold }}"
+{% endif %}
+{% if nethermind_txpool_size is defined %}
+  Size: "{{ nethermind_txpool_size }}"
+{% endif %}
+Wallet:
+{% if nethermind_wallet_dev_accounts is defined %}
+  DevAccounts: "{{ nethermind_wallet_dev_accounts }}"
+{% endif %}
+EthStats:
+{% if nethermind_ethstats_enabled is defined %}
+  Enabled: "{{ nethermind_ethstats_enabled }}"
+{% endif %}
+{% if nethermind_ethstats_name is defined %}
+  Name: "{{ nethermind_ethstats_name }}"
+{% endif %}
+{% if nethermind_ethstats_contact_email is defined %}
+  Contact: "{{ nethermind_ethstats_contact_email }}"
+{% endif %}
+{% if nethermind_ethstats_secret is defined %}
+  Secret: "{{ nethermind_ethstats_secret }}"
+{% endif %}
+{% if nethermind_ethstats_server is defined %}
+  Server: "{{ nethermind_ethstats_server }}"
+{% endif %}
+HealthChecks:
+{% if nethermind_health_checks_enabled is defined %}
+  Enabled: "{{ nethermind_health_checks_enabled }}"
+{% endif %}
+{% if nethermind_health_checks_max_interval_without_processed_block is defined %}
+  MaxIntervalWithoutProcessedBlock: "{{ nethermind_health_checks_max_interval_without_processed_block }}"
+{% endif %}
+{% if nethermind_health_checks_max_interval_without_produced_block is defined %}
+  MaxIntervalWithoutProducedBlock: "{{ nethermind_health_checks_max_interval_without_produced_block }}"
+{% endif %}
+{% if nethermind_health_checks_polling_interval is defined %}
+  PollingInterval: "{{ nethermind_health_checks_polling_interval }}"
+{% endif %}
+{% if nethermind_health_checks_slug is defined %}
+  Slug: "{{ nethermind_health_checks_slug }}"
+{% endif %}
+{% if nethermind_health_checks_ui_enabled is defined %}
+  UIEnabled: "{{ nethermind_health_checks_ui_enabled }}"
+{% endif %}
+{% if nethermind_health_checks_webhooks_enabled is defined %}
+  WebhooksEnabled: "{{ nethermind_health_checks_webhooks_enabled }}"
+{% endif %}
+{% if nethermind_health_checks_webhooks_payload is defined %}
+  WebhooksPayload: "{{ nethermind_health_checks_webhooks_payload }}"
+{% endif %}
+{% if nethermind_health_checks_webhooks_restore_payload is defined %}
+  WebhooksRestorePayload: "{{ nethermind_health_checks_webhooks_restore_payload }}"
+{% endif %}
+{% if nethermind_health_checks_webhooks_uri is defined %}
+  WebhooksUri: "{{ nethermind_health_checks_webhooks_uri }}"
+{% endif %}
+Hive:
+{% if nethermind_hive_enabled is defined %}
+  Enabled: "{{ nethermind_hive_enabled }}"
+{% endif %}
+{% if nethermind_hive_blocks_dir is defined %}
+  BlocksDir: "{{ nethermind_hive_blocks_dir }}"
+{% endif %}
+{% if nethermind_hive_chain_file is defined %}
+  ChainFile: "{{ nethermind_hive_chain_file }}"
+{% endif %}
+{% if nethermind_hive_genesis_file_path is defined %}
+  GenesisFilePath: "{{ nethermind_hive_genesis_file_path }}"
+{% endif %}
+{% if nethermind_hive_keys_dir is defined %}
+  KeysDir: "{{ nethermind_hive_keys_dir }}"
+{% endif %}
+Metrics:
+{% if nethermind_metrics_enabled is defined %}
+  Enabled: "{{ nethermind_metrics_enabled }}"
+{% endif %}
+{% if nethermind_metrics_expose_port is defined %}
+  ExposePort: "{{ nethermind_metrics_expose_port }}"
+{% endif %}
+{% if nethermind_metrics_interval_seconds is defined %}
+  IntervalSeconds: "{{ nethermind_metrics_interval_seconds }}"
+{% endif %}
+{% if nethermind_metrics_node_name is defined %}
+  NodeName: "{{ nethermind_metrics_node_name }}"
+{% endif %}
+{% if nethermind_metrics_push_gateway_url is defined %}
+  PushGatewayUrl: "{{ nethermind_metrics_push_gateway_url }}"
+{% endif %}
+Mining:
+{% if nethermind_mining_enabled is defined %}
+  Enabled: "{{ nethermind_mining_enabled }}"
+{% endif %}
+{% if nethermind_mining_min_gas_price is defined %}
+  MinGasPrice: "{{ nethermind_mining_min_gas_price }}"
+{% endif %}
+{% if nethermind_mining_randomized_blocks is defined %}
+  RandomizedBlocks: "{{ nethermind_mining_randomized_blocks }}"
+{% endif %}
+{% if nethermind_mining_target_block_gas_limit is defined %}
+  TargetBlockGasLimit: "{{ nethermind_mining_target_block_gas_limit }}"
+{% endif %}
+JsonRpc:
+{% if nethermind_jsonrpc_additional_rpc_urls is defined %}
+  AdditionalRpcUrls: "{{ nethermind_jsonrpc_additional_rpc_urls | default([], true) }}"
+{% endif %}
+{% if nethermind_jsonrpc_buffer_responses is defined %}
+  BufferResponses: "{{ nethermind_jsonrpc_buffer_responses }}"
+{% endif %}
+{% if nethermind_jsonrpc_calls_filters_file_path is defined %}
+  CallsFilterFilePath: "{{ nethermind_jsonrpc_calls_filters_file_path }}"
+{% endif %}
+{% if nethermind_jsonrpc_enabled is defined %}
+  Enabled: "{{ nethermind_jsonrpc_enabled }}"
+{% endif %}
+{% if nethermind_jsonrpc_enabled_modules is defined %}
+  EnabledModules: "{{ nethermind_jsonrpc_enabled_modules | default([], true) }}"
+{% endif %}
+{% if nethermind_jsonrpc_engine_enabled_modules is defined %}
+  EngineEnabledModules: "{{ nethermind_jsonrpc_engine_enabled_modules | default([], true) }}"
+{% endif %}
+{% if nethermind_jsonrpc_engine_host is defined %}
+  EngineHost: "{{ nethermind_jsonrpc_engine_host }}"
+{% endif %}
+{% if nethermind_jsonrpc_engine_port is defined %}
+  EnginePort: "{{ nethermind_jsonrpc_engine_port }}"
+{% endif %}
+{% if nethermind_jsonrpc_eth_module_concurrent_instances is defined %}
+  EthModuleConcurrentInstances: "{{ nethermind_jsonrpc_eth_module_concurrent_instances }}"
+{% endif %}
+{% if nethermind_jsonrpc_gas_cap is defined %}
+  GasCap: "{{ nethermind_jsonrpc_gas_cap }}"
+{% endif %}
+{% if nethermind_jsonrpc_host is defined %}
+  Host: "{{ nethermind_jsonrpc_host }}"
+{% endif %}
+{% if nethermind_jsonrpc_ipc_unix_domain_socket_path is defined %}
+  IpcUnixDomainSocketPath: "{{ nethermind_jsonrpc_ipc_unix_domain_socket_path }}"
+{% endif %}
+{% if nethermind_jsonrpc_jwt_secret_path is defined %}
+  JwtSecretFile: "{{ nethermind_jsonrpc_jwt_secret_path }}"
+{% endif %}
+{% if nethermind_jsonrpc_max_logged_request_parameters_chars is defined %}
+  MaxLoggedRequestParametersCharacters: "{{ nethermind_jsonrpc_max_logged_request_parameters_chars }}"
+{% endif %}
+{% if nethermind_jsonrpc_max_request_body_size is defined %}
+  MaxRequestBodySize: "{{ nethermind_jsonrpc_max_request_body_size }}"
+{% endif %}
+{% if nethermind_jsonrpc_methods_logging_filtering is defined %}
+  MethodsLoggingFiltering: "{{ nethermind_jsonrpc_methods_logging_filtering | default([], true) }}"
+{% endif %}
+{% if nethermind_jsonrpc_port is defined %}
+  Port: "{{ nethermind_jsonrpc_port }}"
+{% endif %}
+{% if nethermind_jsonrpc_port_interval_seconds is defined %}
+  ReportIntervalSeconds: "{{ nethermind_jsonrpc_port_interval_seconds }}"
+{% endif %}
+{% if nethermind_jsonrpc_rpc_recorder_base_path is defined %}
+  RpcRecorderBaseFilePath: "{{ nethermind_jsonrpc_rpc_recorder_base_path }}"
+{% endif %}
+{% if nethermind_jsonrpc_rpc_recorder_state is defined %}
+  RpcRecorderState: "{{ nethermind_jsonrpc_rpc_recorder_state }}"
+{% endif %}
+{% if nethermind_jsonrpc_timeout is defined %}
+  Timeout: "{{ nethermind_jsonrpc_timeout }}"
+{% endif %}
+{% if nethermind_jsonrpc_websockets_port is defined %}
+  WebSocketsPort: "{{ nethermind_jsonrpc_websockets_port }}"
+{% endif %}
+Keystore:
+{% if nethermind_keystore_block_author_account is defined %}
+  BlockAuthorAccount: "{{ nethermind_keystore_block_author_account }}"
+{% endif %}
+{% if nethermind_keystore_cipher is defined %}
+  Cipher: "{{ nethermind_keystore_cipher }}"
+{% endif %}
+{% if nethermind_keystore_enode_account is defined %}
+  EnodeAccount: "{{ nethermind_keystore_enode_account }}"
+{% endif %}
+{% if nethermind_keystore_enode_key_file is defined %}
+  EnodeKeyFile: "{{ nethermind_keystore_enode_key_file }}"
+{% endif %}
+{% if nethermind_keystore_iv_size is defined %}
+  IVSize: "{{ nethermind_keystore_iv_size }}"
+{% endif %}
+{% if nethermind_keystore_kdf is defined %}
+  Kdf: "{{ nethermind_keystore_kdf }}"
+{% endif %}
+{% if nethermind_keystore_kdf_params_dklen is defined %}
+  KdfparamsDklen: "{{ nethermind_keystore_kdf_params_dklen }}"
+{% endif %}
+{% if nethermind_keystore_kdf_params_n is defined %}
+  KdfparamsN: "{{ nethermind_keystore_kdf_params_n }}"
+{% endif %}
+{% if nethermind_keystore_kdf_params_p is defined %}
+  KdfparamsP: "{{ nethermind_keystore_kdf_params_p }}"
+{% endif %}
+{% if nethermind_keystore_kdf_params_r is defined %}
+  KdfparamsR: "{{ nethermind_keystore_kdf_params_r }}"
+{% endif %}
+{% if nethermind_keystore_kdf_params_saltlen is defined %}
+  KdfparamsSaltLen: "{{ nethermind_keystore_kdf_params_saltlen }}"
+{% endif %}
+{% if nethermind_keystore_directory is defined %}
+  KeyStoreDirectory: "{{ nethermind_keystore_directory }}"
+{% endif %}
+{% if nethermind_keystore_encoding is defined %}
+  KeyStoreEncoding: "{{ nethermind_keystore_encoding }}"
+{% endif %}
+{% if nethermind_keystore_password_files is defined %}
+  PasswordFiles: "{{ nethermind_keystore_password_files | default([], true) }}"
+{% endif %}
+{% if nethermind_keystore_passwords is defined %}
+  Passwords: "{{ nethermind_keystore_passwords | default([], true) }}"
+{% endif %}
+{% if nethermind_keystore_symmetric_encryptor_block_size is defined %}
+  SymmetricEncrypterBlockSize: "{{ nethermind_keystore_symmetric_encryptor_block_size }}"
+{% endif %}
+{% if nethermind_keystore_symmetric_encryptor_key_size is defined %}
+  SymmetricEncrypterKeySize: "{{ nethermind_keystore_symmetric_encryptor_key_size }}"
+{% endif %}
+{% if nethermind_keystore_test_node_key is defined %}
+  TestNodeKey: "{{ nethermind_keystore_test_node_key }}"
+{% endif %}
+{% if nethermind_keystore_unlock_accounts is defined %}
+  UnlockAccounts: "{{ nethermind_keystore_unlock_accounts | default([], true) }}"
+{% endif %}
+Merge:
+{% if nethermind_merge_builder_relay_url is defined %}
+  BuilderRelayUrl: "{{ nethermind_merge_builder_relay_url }}"
+{% endif %}
+{% if nethermind_merge_enabled is defined %}
+  Enabled: "{{ nethermind_merge_enabled }}"
+{% endif %}
+{% if nethermind_merge_final_total_difficulty is defined %}
+  FinalTotalDifficulty: "{{ nethermind_merge_final_total_difficulty }}"
+{% endif %}
+{% if nethermind_merge_seconds_per_slot is defined %}
+  SecondsPerSlot: "{{ nethermind_merge_seconds_per_slot }}"
+{% endif %}
+{% if nethermind_merge_terminal_block_hash is defined %}
+  TerminalBlockHash: "{{ nethermind_merge_terminal_block_hash }}"
+{% endif %}
+{% if nethermind_merge_terminal_block_number is defined %}
+  TerminalBlockNumber: "{{ nethermind_merge_terminal_block_number }}"
+{% endif %}
+{% if nethermind_merge_terminal_block_difficulty is defined %}
+  TerminalTotalDifficulty: "{{ nethermind_merge_terminal_block_difficulty }}"
+{% endif %}
