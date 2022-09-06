@@ -26,7 +26,6 @@ All variables which can be overridden are stored in [defaults/main.yml](defaults
 | Name           | Default Value | Description                        |
 | -------------- | ------------- | -----------------------------------|
 | `nethermind_version` | "latest" |  Version of nethermind to install and run. All available versions are listed on the nethermind [solutions](https://github.com/NethermindEth/nethermind/releases) page. Omit the 'v' in the version. e.g. 1.4.0 |
-| `nethermind_git_repo` | https://github.com/NethermindEth/nethermind.git | The URL to use when cloning nethermind sources. |
 | `nethermind_user` | nethermind | nethermind user |
 | `nethermind_group` | nethermind | nethermind group |
 | `nethermind_download_url` | ___unset___ | The download tar.gz file used. You can use this if you need to retrieve nethermind from a custom location such as an internal repository. |

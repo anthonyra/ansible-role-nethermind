@@ -1,14 +1,18 @@
 - name: Get nethermind latest tag
-  github_release:
-    user: NethermindEth
-    repo: nethermind
-    action: latest_release
+  uri:
+    url: https://api.github.com/repos/NethermindEth/nethermind/releases/latest
+    return_content: true
   register: nethermind_latest
+  # github_release:
+  #   user: NethermindEth
+  #   repo: nethermind
+  #   action: latest_release
+  # register: nethermind_latest
   when: nethermind_version is not defined or nethermind_version == "latest"
 
 - name: Save download urls
   uri:
-    url: https://api.github.com/repos/NethermindEth/nethermind/releases/tags/{{ nethermind_latest['tag'] | default(nethermind_version) | regex_replace('^v','') }}
+    url: https://api.github.com/repos/NethermindEth/nethermind/releases/tags/{{ nethermind_latest['tag_name'] | default(nethermind_version) | regex_replace('^v','') }}
     return_content: true
   register: nethermind_urls
 
