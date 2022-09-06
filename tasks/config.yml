@@ -18,9 +18,15 @@
   set_fact:
     nethermind_templated_config: "{{ nethermind_template_null_remove | default({}, true) }}"
 
+- name: "read remote {{ nethermind_config_base }}"
+  register: values
+  ansible.builtin.slurp:
+    src: "{{ nethermind_current_dir + '/configs/' + nethermind_config_base + '.cfg' }}"
+  ignore_errors: yes
+
 - name: Merge custom config
   set_fact:
-    nethermind_merged_config: "{{ lookup('file', nethermind_current_dir + '/configs/' + nethermind_config_base + '.cfg') | from_json | combine(nethermind_templated_config, recursive=True) | combine(nethermind_custom_config, recursive=True) }}"
+    nethermind_merged_config: "{{ values.stdout_lines | default({}, true) | from_json | combine(nethermind_templated_config, recursive=True) | combine(nethermind_custom_config, recursive=True) }}"
 
 - name: Generate config file
   copy:
