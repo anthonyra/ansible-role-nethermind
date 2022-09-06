@@ -3,12 +3,10 @@
     url: https://api.github.com/repos/NethermindEth/nethermind/releases/latest
     return_content: true
   register: nethermind_latest
-  # github_release:
-  #   user: NethermindEth
-  #   repo: nethermind
-  #   action: latest_release
-  # register: nethermind_latest
   when: nethermind_version is not defined or nethermind_version == "latest"
+
+- debug:
+    var: nethermind_latest.json.tag_name
 
 - name: Save download urls
   uri:
