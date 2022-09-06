@@ -12,7 +12,6 @@
 
 - name: Include version setter task
   ansible.builtin.include_tasks: "version.yml"
-  when: nethermind_build_from_source is false
 
 - name: Ensure nethermind group exists
   group:
