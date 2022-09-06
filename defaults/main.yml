@@ -12,7 +12,7 @@ nethermind_version: "latest"
 
 # Directory paths
 nethermind_base_dir: "/opt/nethermind"
-nethermind_install_dir: "{{ nethermind_base_dir }}/nethermind-{{ nethermind_version if nethermind_version != 'latest' else nethermind_latest }}"
+nethermind_install_dir: "{{ nethermind_base_dir }}/nethermind-{{ nethermind_version if nethermind_version != 'latest' else nethermind_latest.json.tag_name }}"
 nethermind_current_dir: "{{ nethermind_base_dir }}/current"
 nethermind_config_dir: "/etc/nethermind"
 nethermind_config_template: "config.cfg.j2"
