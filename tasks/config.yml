@@ -26,10 +26,10 @@
 
 - name: "Decode slurped {{ nethermind_config_base }}"
   set_fact:
-    nethermind_slurped_default_config: "{{ values.content | default('') | b64decode }}"
+    nethermind_slurped_default_config: "{{ values.content | default('') | b64decode | default('{}', true) | to_json }}"
 
 - debug:
-    var: values.content
+    var: nethermind_slurped_default_config
 
 - name: Merge custom config
   set_fact:
