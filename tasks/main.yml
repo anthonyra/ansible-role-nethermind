@@ -1,4 +1,9 @@
 ---
+- name: Fail if nethermind_version not set
+  ansible.builtin.fail:
+    msg: Role will not run if nethermind_version is not set. Accepts semver value or "latest"
+  when: nethermind_version is not defined
+
 - name: Include OS and distribution specific variables
   include_vars: "{{ item }}"
   with_first_found:
