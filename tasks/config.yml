@@ -24,9 +24,12 @@
     src: "{{ nethermind_current_dir + '/configs/' + nethermind_config_base + '.cfg' }}"
   ignore_errors: yes
 
+- debug:
+    var: values.content
+
 - name: Merge custom config
   set_fact:
-    nethermind_merged_config: "{{ values.stdout_lines | default('{}', true) | from_json | combine(nethermind_templated_config, recursive=True) | combine(nethermind_custom_config, recursive=True) }}"
+    nethermind_merged_config: "{{ values.content | default('{}', true) | from_json | combine(nethermind_templated_config, recursive=True) | combine(nethermind_custom_config, recursive=True) }}"
 
 - name: Generate config file
   copy:
