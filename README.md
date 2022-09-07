@@ -201,12 +201,6 @@ Install the role from galaxy
 ```
 ansible-galaxy install consensys.nethermind
 ```
-Create a [requirements.txt](requirements.txt) taken from this repo:
-```
-python -m venv env
-. env/bin/activate
-pip install -r requirements.txt
-```
 
 Create a requirements.yml with the following:
 Replace `x.y.z` below with the version you would like to use from the nethermind [solutions](https://github.com/NethermindEth/nethermind/releases) page
