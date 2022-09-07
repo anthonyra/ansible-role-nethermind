@@ -26,14 +26,14 @@
 
 - name: "Decode slurped {{ nethermind_config_base }}"
   set_fact:
-    nethermind_slurped_default_config: "{{ values.content | default('') | b64decode | default('{}', true) | to_json }}"
+    nethermind_slurped_default_config: "{{ values.content | default('') | b64decode | default('{}', true) | from_json }}"
 
 - debug:
     var: nethermind_slurped_default_config
 
 - name: Merge custom config
   set_fact:
-    nethermind_merged_config: "{{ nethermind_slurped_default_config | default('{}', true) | from_json | combine(nethermind_templated_config, recursive=True) | combine(nethermind_custom_config, recursive=True) }}"
+    nethermind_merged_config: "{{ nethermind_slurped_default_config | combine(nethermind_templated_config, recursive=True) | combine(nethermind_custom_config, recursive=True) }}"
 
 - name: Generate config file
   copy:
