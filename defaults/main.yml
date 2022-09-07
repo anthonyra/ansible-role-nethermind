@@ -4,7 +4,7 @@ nethermind_user: nethermind
 nethermind_group: "{{ nethermind_user }}"
 
 # Version to install
-nethermind_version: "latest"
+# nethermind_version: "latest"
 
 # Building from source
 # nethermind_git_repo: "https://github.com/NethermindEth/nethermind.git"
