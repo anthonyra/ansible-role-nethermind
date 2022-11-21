@@ -54,7 +54,7 @@
           Metadata-Flavor: Google
         return_content: yes
         status_code: 200
-      register: nethermind_network_external_ip
+      register: gcp_public_ip_output
       ignore_errors: True
       when: ( aws_ip_output.status != 200 ) and
         ( azure_ip_output.status != 200 )
@@ -62,7 +62,6 @@
     - name: Set the host ip if we are in GCP
       set_fact:
         nethermind_network_external_ip: "{{ gcp_ip_output.content }}"
-      register: gcp_ip_output
       when: ( aws_ip_output.status != 200 ) and
         ( azure_ip_output.status != 200 ) and
         ( gcp_ip_output.status == 200 )
